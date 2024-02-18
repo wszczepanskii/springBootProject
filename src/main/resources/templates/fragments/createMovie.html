@@ -1,0 +1,21 @@
+<div class="container-r">
+    <div class="reviews-container">
+        <form method="post" th:object="${movie}">
+            <label for="movie-title">Tytuł filmu:</label>
+            <input type="text" id="movie-title" placeholder="Tytuł filmu" th:field="*{title}" required>
+            <label for="movie-genre">Gatunek:</label>
+            <input type="text" id="movie-genre" placeholder="Gatunek" th:field="*{genre}" required>
+            <label for="movie-release-date">Rok wydania:</label>
+            <input type="text" id="movie-release-date" placeholder="Rok wydania" th:field="*{releaseDate}" required>
+            <label for="movie-actors">Aktorzy:</label>
+            <input type="text" id="movie-actors" placeholder="Aktorzy" th:field="*{actors}" required>
+            <label for="movie-description">Opis:</label>
+            <input type="text" id="movie-description" placeholder="Opis" th:field="*{description}" required>
+            <label for="movie-image-uri">ImageUri:</label>
+            <input type="text" id="movie-image-uri" placeholder="ImageUri" th:field="*{imageUri}" required>
+            <button type="submit" class="rent-btn idx-btn review-btn">
+                Dodaj
+            </button>
+        </form>
+    </div>
+</div>

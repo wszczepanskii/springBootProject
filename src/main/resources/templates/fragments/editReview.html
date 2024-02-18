@@ -1,0 +1,11 @@
+<div class="container-r">
+    <div class="reviews-container">
+        <form method="post" th:object="${review}">
+            <label for="movie-title">Opis:</label>
+            <input type="text" id="movie-title" placeholder="Opis" th:field="*{reviewDescription}" required>
+            <button type="submit" class="rent-btn idx-btn review-btn">
+                Zapisz
+            </button>
+        </form>
+    </div>
+</div>

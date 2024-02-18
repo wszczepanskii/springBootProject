@@ -1,0 +1,61 @@
+<!--&lt;!&ndash; Section&ndash;&gt;-->
+<!--<section class="py-5">-->
+<!--    <div class="container px-4 px-lg-5 mt-5">-->
+<!--        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">-->
+<!--            <div th:each="movie : ${movies}" class="col mb-4"> &lt;!&ndash; Zmniejsz odstęp między kartami &ndash;&gt;-->
+<!--                <div class="card h-100">-->
+<!--                    <a th:href="@{/movies/{id}/reviews(id=${movie.id})}" class="product-link">-->
+<!--                        jakis linczek-->
+<!--&lt;!&ndash;                        &lt;!&ndash; Obraz produktu z marginesem od góry &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                        <img class="card-img-top img-fluid mt-3" th:src="${product.img_url}" alt="Product Image" style="height: 200px; object-fit: cover;">&ndash;&gt;-->
+<!--                    </a>-->
+<!--                    &lt;!&ndash; Szczegóły produktu &ndash;&gt;-->
+<!--                    <div class="card-body p-4">-->
+<!--                        <div class="text-center">-->
+<!--                            &lt;!&ndash; Nazwa produktu &ndash;&gt;-->
+<!--                            <h5 class="fw-bolder" th:text="${movie.title}"></h5>-->
+
+<!--                            &lt;!&ndash; Marka i Waga &ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="d-flex justify-content-between">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <h6>Marka:</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <h6 class="fw-bolder" th:text="${product.brand}"></h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <h6>Waga:</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <h6 class="fw-bolder" th:text="${product.weight}"></h6>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                            </div>-->
+
+<!--                            &lt;!&ndash; Cena produktu &ndash;&gt;-->
+<!--&lt;!&ndash;                            <h2><span th:text="${product.price} + 'zł'"></span></h2>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; Działania produktu &ndash;&gt;-->
+<!--                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">-->
+<!--&lt;!&ndash;                        <div class="text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a class="btn btn-outline-dark mt-auto" th:href="@{/checkout/{id}(id=${product.id})}">Kup Teraz</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+
+
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<section class="movie-container" >
+    <div class="movie-card" th:each="movie : ${movies}">
+        <img th:src="${movie.imageUri}" width="240" height="330">
+        <p class="movie-card__info" th:text="${movie.title}"></p>
+        <p class="movie-card__info" th:text="${movie.genre}"></p>
+        <form method="get" th:action="@{/movies/{id}/reviews(id=${movie.id})}">
+            <button type="submit" class="rent-btn idx-btn">
+                Zobacz opinie
+            </button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+<section class="movie-details text-white ">
+    <div class="movie-details__img">
+        <img th:object="${movie}" th:src="${movie.imageUri}"/>
+    </div>
+    <div class="movie-details-container">
+        <div style="width: 50%;" class="movie-info">
+            <h2 class="movie-info__h">Tytuł</h2>
+            <p class="movie-info__text" th:object="${movie}" th:text="${movie.title}"></p>
+            <h2 class="movie-info__h">Aktorzy</h2>
+            <p class="movie-info__text" th:object="${movie}" th:text="${movie.actors}"></p>
+            <h2 class="movie-info__h">Gatunek</h2>
+            <p class="movie-info__text" th:object="${movie}" th:text="${movie.genre}"></p>
+            <h2 class="movie-info__h">Data premiry</h2>
+            <p class="movie-info__text" th:object="${movie}" th:text="${movie.releaseDate}"></p>
+        </div>
+        <div style="width: 50%;" class="movie-info">
+            <h2 class="movie-info__h">Opis</h2>
+            <p class="movie-info__text" th:object="${movie}" th:text="${movie.description}"></p>
+        </div>
+    </div>
+    <div class="reviews-list">
+        <h3>Opinie:</h3>
+        <hr/>
+        <div th:if="${!review.isEmpty()}">
+            <div th:each="review : ${review}">
+                <div class="review-span">
+                    <div class="review-desc-container">
+                        <p th:text="${review.reviewDescription}" class="review-desc"></p>
+                    </div>
+<!--                    <form method="get" th:object="${review}" th:action="@{/deleteReview/{id}/{movieId}(id=${review.id}, movieId=${review.movie.id})}">-->
+<!--                        <button class="delete-review-btn">Usuń</button>-->
+<!--                    </form>-->
+<!--                    <form method="get" th:object="${review}" th:action="@{/deleteReview/{id}(id=${review.id})}">-->
+<!--                        <button class="delete-review-btn">Usuń</button>-->
+<!--                    </form>-->
+                </div>
+                <p class="username" th:text="${review.username}"></p>
+                <hr/>
+            </div>
+            <form method="get" th:object="${movie}" th:action="@{/createReview/{id}(id=${movie.id})}">
+                <button type="submit" class="rent-btn idx-btn review-btn">Dodaj nową opinię</button>
+            </form>
+        </div>
+        <div class="no-reviews-container" th:if="${review.isEmpty()}">
+            <p>Brak opini</p>
+            <form method="get" th:object="${movie}" th:action="@{/createReview/{id}(id=${movie.id})}">
+                <button type="submit" class="rent-btn idx-btn review-btn">Dodaj nową opinię</button>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+<div class="container-r">
+    <div class="reviews-container">
+        <h2>Nazwa filmu:</h2>
+        <p th:object="${movie}" th:text="${movie.title}" class="movie-title"></p>
+        <form method="post" th:object="${review}">
+            <label for="user">Nazwa:</label>
+            <input type="text" id="user" placeholder="Twoja nazwa" th:field="*{username}" required>
+            <label for="review-body">Opis:</label>
+            <textarea maxlength="100" placeholder="Twoja opinia" id="review-body" th:field="*{reviewDescription}" required></textarea>
+            <button type="submit" class="rent-btn idx-btn review-btn">
+                Dodaj opinię
+            </button>
+        </form>
+    </div>
+</div>

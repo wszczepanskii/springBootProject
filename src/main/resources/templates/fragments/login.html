@@ -1,0 +1,13 @@
+<div class="container-r">
+    <div class="reviews-container">
+        <p th:if="${param.error}" class="alert-danger" role="alert">Błędny login albo hasło</p>
+        <form method="post" th:action="@{/login}">
+            <label for="login">Login:</label>
+            <input type="text" id="login" placeholder="Twoja nazwa użytkownika" name="login" required>
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" placeholder="Twoje hasło" name="password" required>
+
+            <button type="submit" class="rent-btn idx-btn review-btn">Login</button>
+        </form>
+    </div>
+</div>
